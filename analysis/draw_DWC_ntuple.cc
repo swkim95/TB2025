@@ -32,11 +32,7 @@ int main(int argc, char** argv) {
     fs::path dir("./DWC");   
     if (!(fs::exists(dir))) fs::create_directory(dir);
 
-    // Load mapping
-    TButility util = TButility();
-    util.LoadMapping("../mapping/mapping_TB2025_v1.root");
-
-    TFile* fNtuple = TFile::Open((TString)("/pnfs/knu.ac.kr/data/cms/store/user/sungwon/2025_DRC_TB_PromptAnalysis/Prompt_ntuple_Run_" + std::to_string(fRunNum) + ".root"), "READ");
+    TFile* fNtuple = TFile::Open((TString)("/eos/user/s/sungwon/TB2025_Prompt_Ntuple/Prompt_ntuple_Run_" + std::to_string(fRunNum) + ".root"), "READ");
     
     // Create TTreeReader
     TTreeReader reader("evt", fNtuple);
