@@ -5,7 +5,7 @@
 
 # When using local ROOT (X11 activated)
 source /Users/yhep/root-6.36.00/install/bin/thisroot.sh
-source /Users/yhep/AI/ai/bin/activate
+# source /Users/yhep/autoTB/ai/bin/activate
 
 export INSTALL_DIR_PATH=$PWD/install
 
@@ -15,10 +15,10 @@ export DYLD_LIBRARY_PATH=$INSTALL_DIR_PATH/lib
 export PYTHONPATH=$PYTHONPATH:$INSTALL_DIR_PATH/lib
 
 # Set YAMLPATH - try Homebrew first, then CVMFS
-if [ -d "/opt/homebrew/opt/yaml-cpp" ]; then
-  export YAMLPATH=/opt/homebrew/opt/yaml-cpp/lib
-elif [ -d "/Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac15-clang170-opt" ]; then
-  export YAMLPATH=/Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac15-clang170-opt/lib
-fi
+# if [ -d "/opt/homebrew/opt/yaml-cpp" ]; then
+#   export YAMLPATH=/opt/homebrew/opt/yaml-cpp/lib
+# elif [ -d "/Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac15-clang170-opt" ]; then
+#   export YAMLPATH=/Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac15-clang170-opt/lib
+# fi
 
-export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$YAMLPATH
+# export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$YAMLPATH
