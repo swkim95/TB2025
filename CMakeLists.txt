@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 project(dual-readout_TB)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-# set(yaml-cpp_DIR /Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac12-clang131-opt/lib/cmake/yaml-cpp)
+# set(yaml-cpp_DIR /Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac15-clang170-opt/lib/cmake/yaml-cpp)
 
 include(GNUInstallDirs)
 
 find_package(ROOT REQUIRED)
-find_package(yaml-cpp REQUIRED)
+# find_package(yaml-cpp REQUIRED)
 
 
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/include
-  # /Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac12-clang131-opt/include
+  # /Users/Shared/cvmfs/sft.cern.ch/lcg/releases/yamlcpp/0.6.3-d05b2/arm64-mac15-clang170-opt/include
 )
 
 file(GLOB sources
@@ -29,8 +29,7 @@ ROOT_GENERATE_DICTIONARY(G__drcTB ${headers} LINKDEF ${CMAKE_CURRENT_SOURCE_DIR}
 
 add_library(drcTB SHARED ${sources} G__drcTB.cxx)
 
-target_include_directories(drcTB PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${ROOT_INCLUDE_DIRS})
-  # ${YAML_CPP_INCLUDE_DIR})
+target_include_directories(drcTB PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${ROOT_INCLUDE_DIRS} ${YAML_CPP_INCLUDE_DIR})
 
 target_link_libraries(
   drcTB
